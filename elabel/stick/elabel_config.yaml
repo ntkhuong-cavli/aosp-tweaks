@@ -17,7 +17,7 @@ countries:
       standards: "CAN ICES-3 (B)/NMB-3(B)"
       code: "31113-CQS290NA"
     culus:
-      logo: "culus_logo_100.png"
+      logo: "culus_ite_icon_100.png"
       code: "E336783"
 
   - name: "UNITED STATES"
@@ -27,5 +27,5 @@ countries:
       code: "2BB64CQS290NA"
       statement: "fcc_statement_400.png"
     culus:
-      logo: "culus_logo_100.png"
+      logo: "culus_ite_icon_100.png"
       code: "E336783"
