@@ -1,0 +1,32 @@
+# 📦 E-Label Generator
+
+This tool generates a regulatory e-label PNG image from a YAML description file, using Python and Pillow.  
+Ideal for embedding compliance data (FCC, IC, CULUS, etc.) in Android devices (`/data/misc/elabel/regulatory_info.png`).
+
+---
+
+## ✨ Features
+
+- Parse regulatory metadata from YAML
+- Render text onto PNG image
+- Adjustable image size
+- Supports IC, FCC, and CULUS info
+- CLI with short and long arguments
+
+---
+
+## 🛠️ Requirements
+
+```bash
+sudo apt update
+sudo apt install python3-pip python3-pil fonts-dejavu-core
+sudo apt install python3-yaml python3-pil
+
+
+## 🚀 Usage
+```bash
+python3 generate_elabel.py \
+  -y elabel_config.yaml \
+  -w 1024 \
+  -h 768 \
+  -o regulatory_info.png

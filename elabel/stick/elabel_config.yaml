@@ -1,0 +1,31 @@
+company:
+  name: "JP Morgan Chase Bank N.A"
+  font_size: 20
+
+model:
+  name: "STICK_401_GEN1"
+  font_size: 16
+
+font_bold: "DejaVuSans-Bold.ttf"
+font_regular: "DejaVuSans.ttf"
+code_font_size: 14
+
+countries:
+  - name: "CANADA"
+    font_size: 18
+    ices:
+      standards: "CAN ICES-3 (B)/NMB-3(B)"
+      code: "31113-CQS290NA"
+    culus:
+      logo: "culus_logo_100.png"
+      code: "E336783"
+
+  - name: "UNITED STATES"
+    font_size: 18
+    fcc:
+      logo: "fcc_logo_50.png"
+      code: "2BB64CQS290NA"
+      statement: "fcc_statement_400.png"
+    culus:
+      logo: "culus_logo_100.png"
+      code: "E336783"
