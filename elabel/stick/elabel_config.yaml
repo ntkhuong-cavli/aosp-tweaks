@@ -15,7 +15,8 @@ countries:
     font_size: 18
     ices:
       standards: "CAN ICES-3 (B)/NMB-3(B)"
-      code: "31113-CQS290NA"
+      cavli_code: "31113-CQS290NA"
+      code: "33846-STICK401"
     culus:
       logo: "culus_ite_icon_100.png"
       code: "E336783"
@@ -23,9 +24,10 @@ countries:
   - name: "UNITED STATES"
     font_size: 18
     fcc:
-      logo: "fcc_logo_50.png"
-      code: "2BB64CQS290NA"
-      statement: "fcc_statement_400.png"
+      logo: "fcc_logo_40.png"
+      cavli_code: "2BB64CQS290NA"
+      code: "2BHXP-STICK401GEN1"
+      statement: "fcc_statement_400_2.png"
     culus:
       logo: "culus_ite_icon_100.png"
       code: "E336783"
