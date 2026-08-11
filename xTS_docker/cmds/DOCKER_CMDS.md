@@ -14,9 +14,11 @@ docker system df
 
 ```bash
 # Clean build cache
+cd <docker_directory>
 docker builder prune -a
 
 # Full system prune (containers, images, networks, volumes)
+cd <docker_directory>
 docker system prune -af --volumes
 
 # Bring down docker-compose stack with volumes

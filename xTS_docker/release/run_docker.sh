@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE="cavli-test-docker:cqs290_cts"
+IMAGE="cavli-test-docker:stick_testtools"
 CONTAINER="cavli-test-cts"
 FORCE=false
 

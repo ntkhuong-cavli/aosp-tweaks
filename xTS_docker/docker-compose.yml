@@ -17,21 +17,6 @@ services:
     build:
       context: ./base
 
-  cts:
-    # This is the container name
-    container_name: cqs290_cts
-    image: cavli-test-docker:cqs290_cts
-    entrypoint: /bin/bash -c "/opt/scripts/env_init.sh && while true; do sleep 10; done"
-    privileged: true
-    volumes:
-      - /etc/localtime:/etc/localtime
-      - /etc/timezone:/etc/timezone
-      - /dev:/dev 
-      - /dev/bus/usb:/dev/bus/usb
-    tty: true
-    build:
-      context: ./cts
-
   stick:
     # This is the container name
     container_name: stick_testtools
