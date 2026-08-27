@@ -16,6 +16,8 @@ IMAGE_NAME="cavli-test-docker"
 IMAGE_OUTDIR="$1"
 DOCKERFILE_PATH="${2:-Dockerfile}"   # Default: ./Dockerfile
 IMAGE_TAG="${3:-stick_testtools}"    # Default: stick_testtools
+# Override tmp dir: DOCKER_SAVE_TMPDIR=/mnt/other-disk bash cmds/save.sh ...
+SAVE_TMPDIR="${DOCKER_SAVE_TMPDIR:-/home/alvin/documents/.docker-tmp}"
 
 echo "=== Docker Image Saver ==="
 
@@ -72,7 +74,20 @@ fi
 echo "[INFO] Saving image to:"
 echo "       $OUTPUT_FILE"
 
-docker save "$IMAGE_NAME:$IMAGE_TAG" -o "$OUTPUT_FILE"
+if [[ -n "$SAVE_TMPDIR" ]]; then
+    if [[ ! -d "$SAVE_TMPDIR" ]]; then
+        echo "[ERROR] DOCKER_SAVE_TMPDIR not found: $SAVE_TMPDIR"
+        exit 1
+    fi
+    TMP_FILE="${SAVE_TMPDIR}/.tmp-docker-${IMAGE_VER}.tar"
+    echo "[INFO] Using tmp dir: $SAVE_TMPDIR"
+    trap 'rm -f "$TMP_FILE"' EXIT
+    docker save "$IMAGE_NAME:$IMAGE_TAG" -o "$TMP_FILE"
+    mv "$TMP_FILE" "$OUTPUT_FILE"
+    trap - EXIT
+else
+    docker save "$IMAGE_NAME:$IMAGE_TAG" -o "$OUTPUT_FILE"
+fi
 
 # Verify
 if [[ -f "$OUTPUT_FILE" ]]; then

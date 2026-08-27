@@ -106,8 +106,7 @@ bash cmds/save.sh ./output ./cts-stick/Dockerfile stick_testtools
 bash cmds/save.sh ./output ./cts/Dockerfile cqs290_cts
 
 # Last tested:
-bash cmds/save.sh ./stick_cts-14.0_r10-media_1.5-vsdk_I19b0fb0-vts ./cts-stick/Dockerfile stick_testtools
-bash cmds/save.sh ./STICK-LA5.0_CTS-14-R11_VSDK-9a84f801_MEDIA-1.5_VTS ./targets/stick/Dockerfile stick_testtools
+bash cmds/save.sh /home/alvin/workspaces/002/cavli/projects/cts/aosp-tweaks/xTS_docker/release/deloy/STICK-LA5.0_CTS-14-R11_VSDK-9fc4089d_MEDIA-1.5_VTS-R22 ./targets/stick/Dockerfile stick_testtools
 ```
 
 **save.sh behavior:**
@@ -117,3 +116,12 @@ bash cmds/save.sh ./STICK-LA5.0_CTS-14-R11_VSDK-9a84f801_MEDIA-1.5_VTS ./targets
 - Output file: `<output_dir>/docker-<VERSION>.tar`
 - Validates: output dir exists, Dockerfile exists, image is built
 - Warns and overwrites if output `.tar` already exists
+- Temp file is written to `DOCKER_SAVE_TMPDIR` (default: `/home/alvin/documents/.docker-tmp`) then moved to the output dir — avoids "no space left" errors on the output disk
+
+```bash
+# Override tmp dir if needed:
+DOCKER_SAVE_TMPDIR=/mnt/other-disk bash cmds/save.sh <output_dir> [Dockerfile_path] [image_tag]
+
+# Ensure default tmp dir exists:
+mkdir -p /home/alvin/documents/.docker-tmp
+```
