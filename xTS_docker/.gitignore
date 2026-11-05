@@ -1,3 +1,4 @@
 base/tools/qdl/*
 base/platform-tools/*
 release/deloy/*
+.claude/settings.local.json

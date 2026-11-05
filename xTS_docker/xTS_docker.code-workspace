@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../cqs29x-iot_jabil_platform_cts"
+		},
+		{
+			"path": "../../cts-aosp"
 		}
 	],
 	"settings": {}
