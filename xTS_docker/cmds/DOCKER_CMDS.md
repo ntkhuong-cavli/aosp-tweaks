@@ -28,7 +28,7 @@ for the image and the `.tar`, then 15 GB for the `.zip`. Check with `df -h .`.
 ### 1. Set the version
 
 ```bash
-VER=STICK-LA5.0_CTS-14-R14_VSDK-8886a665_MEDIA-1.5_VTS-R22
+VER=STICK-LA5.0_CTS-14-R14_VSDK-8886a665_MEDIA-1.5_VTS-R23
 ```
 
 | Part | Meaning |
@@ -37,7 +37,7 @@ VER=STICK-LA5.0_CTS-14-R14_VSDK-8886a665_MEDIA-1.5_VTS-R22
 | `CTS-14-R14` | AOSP tag `android-cts-14.0_r14` |
 | `VSDK-8886a665` | Commit of `jabil-vsdk-testcases` merged into the CTS branch (`git -C ../../cts-aosp/cts log -1 --format=%h HEAD^2`) |
 | `MEDIA-1.5` | CTS media package version |
-| `VTS-R22` | VTS package (`android-vts-LA5.0-R22.zip`) |
+| `VTS-R23` | VTS package (`android-vts-LA5.0-R23.zip`) |
 
 ### 2. Unzip the packages
 
@@ -50,7 +50,7 @@ unzip -q -d ../android-cts-tools android-cts.zip
 
 # VTS: only if the VTS package changed
 # rm -rf ../android-vts-tools/android-vts
-# unzip -q -d ../android-vts-tools android-vts-LA5.0-R22.zip
+# unzip -q -d ../android-vts-tools android-vts-LA5.0-R23.zip
 
 cd -
 ```
@@ -84,6 +84,7 @@ something in `base/` changed. `cmds/build.sh` always builds both images.
 IMG=cavli-test-docker:stick_testtools
 docker run --rm --entrypoint cat $IMG /etc/docker_image_version             # = $VER
 docker run --rm --entrypoint cat $IMG /opt/workspace/cts/android-cts/tools/version.txt
+docker run --rm --entrypoint cat $IMG /opt/workspace/vts/android-vts/tools/version.txt
 docker run --rm --entrypoint ls  $IMG /opt/workspace/cts/android-cts/testcases | grep -E 'CLDemo|DeskTop'
 ```
 
